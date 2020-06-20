@@ -7,8 +7,8 @@ I've kept the rest of the repo here as an archive.
 # What
 This is a small script that combined with the help of pre-packaged DLL's scans nearby wifi networks and prints the results. 
 # Why
-There exists [node-wifi](https://github.com/friedrith/node-wifi) but both of those libraries have the same flaw when running on Windows systems.
-They utilize the `netsh` Windows command which retrieves only a *cached* version of the wireless networks. `netsh` does not request a re-scan from the underlying hardware.
+There exists [node-wifi](https://github.com/friedrith/node-wifi) but it has a flaw when running on Windows systems.
+It  utilizes the `netsh` Windows command which retrieves only a *cached* version of the wireless networks. `netsh` does not request a re-scan from the underlying hardware.
 To do that we must use utilize Windows API's using C++ or C#.
 
 > The networks are updated only when a scan is completed by your WiFi card. The NETSH command does not request a scan; it only displays the cached results of the last scan.
