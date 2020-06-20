@@ -1,7 +1,13 @@
+# Do not use this.
+Use [winwifi](https://github.com/changyuheng/winwifi.py) instead. 
+When I wrote this I thought that winwifi naively used `netsh`. But after taking a closer look it uses native windows API's to actually perform a hardware re-scan before calling `netsh` (which was the entire point of this script).  
+
+
+I've kept the rest of the repo here as an archive.
 # What
 This is a small script that combined with the help of pre-packaged DLL's scans nearby wifi networks and prints the results. 
 # Why
-There exists [winwifi](https://github.com/changyuheng/winwifi.py) and similarly [node-wifi](https://github.com/friedrith/node-wifi) but both of those libraries have the same flaw when running on Windows systems.
+There exists [node-wifi](https://github.com/friedrith/node-wifi) but both of those libraries have the same flaw when running on Windows systems.
 They utilize the `netsh` Windows command which retrieves only a *cached* version of the wireless networks. `netsh` does not request a re-scan from the underlying hardware.
 To do that we must use utilize Windows API's using C++ or C#.
 
