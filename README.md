@@ -24,7 +24,13 @@ Use by executing the command:
  
 If you want to store the results of each call into a file (this will also write errors to a separate file), you can execute the command:
   
-```python scan.py -verbose-logging```
+```python scan.py -logger-level=loud```
+
+You can also tell the program to be quiet and not print anything. To do that execute the following command:
+  
+```python scan.py -logger-level=quiet```
+
+
 
 If you want the program to run just once, you can execute the command:
   
@@ -33,14 +39,15 @@ If you want the program to run just once, you can execute the command:
 The full help message produces by [argsparse](https://docs.python.org/3/library/argparse.html) is:
 
 ```
-usage: scan.py [-h] [-verbose-logging] [-once]
+usage: scan.py [-h] [-logger-level {quiet,default,loud}] [-once]
 
-Scan surrounding wifi networks on an inifinite loop
+Scan surrounding wifi networks on an infinite loop
 
 optional arguments:
-  -h, --help        show this help message and exit
-  -verbose-logging  Whether or not to write errors and each scan result to a file in the directory of the script
-  -once             Specify this flag if you want to refresh the wifi just once and do an infinite loop
+  -h, --help            show this help message and exit
+  -logger-level {quiet,default,loud}
+                        The level of logging. Quiet will show no output. Default will print changed results onto the console. Loud will log every netsh result to a log.txt file and errors to an errors.txt file
+  -once                 Specify this flag if you want to refresh the wifi just once and do an infinite loop
 ```
 
 # Notes
