@@ -28,6 +28,8 @@ If you want to store the results of each call into a file (this will also write 
 
 # Notes
 
+The Python runtime for this program is Python 3.8. It contains f-strings and uses the `os.add_dll_directory` function which is new to Python 3.8.
+
 The original source code for the C++ code can be found [here](https://superuser.com/a/1436051/490393). It was written by [user541686](https://superuser.com/users/59271/user541686).
 The [wlanscan.cpp](wlanscan.cpp) version of the code was modified to enable DLL support.
  
