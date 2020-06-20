@@ -16,7 +16,7 @@ It forces a re-scan using the DLL's included in this repo and only *then* calls 
 This is for users running python on Windows machines who want to monitor the availability and names of surrounding wifi networks. It will not work on other operating systems.
 It will work on both x86 and 64-bit architectures.
 # How
-You can use the [scan.py](scan.py) from the CLI. By default, it will just print the results of each scan that produces new results to the screen.
+[scan.py](scan.py) is a CLI. By default, it will run forever and print the results of each scan that produces new results to the screen.
 
 Use by executing the command:
 
@@ -25,6 +25,23 @@ Use by executing the command:
 If you want to store the results of each call into a file (this will also write errors to a separate file), you can execute the command:
   
 ```python scan.py -verbose-logging```
+
+If you want the program to run just once, you can execute the command:
+  
+```python scan.py -once```
+
+The full help message produces by [argsparse](https://docs.python.org/3/library/argparse.html) is:
+
+```
+usage: scan.py [-h] [-verbose-logging] [-once]
+
+Scan surrounding wifi networks on an inifinite loop
+
+optional arguments:
+  -h, --help        show this help message and exit
+  -verbose-logging  Whether or not to write errors and each scan result to a file in the directory of the script
+  -once             Specify this flag if you want to refresh the wifi just once and do an infinite loop
+```
 
 # Notes
 

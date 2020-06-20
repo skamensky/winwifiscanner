@@ -155,7 +155,7 @@ class WifiOffException(Exception):
     pass
 
 
-def main(verbose_logging=False):
+def main(verbose_logging=False, run_once=False):
 
     while True:
 
@@ -206,6 +206,9 @@ def main(verbose_logging=False):
         except WifiOffException:
             time.sleep(1)
 
+        if run_once:
+            break
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -217,10 +220,15 @@ if __name__ == "__main__":
         dest="verbose_logging",
         help="Whether or not to write errors and each scan result to a file in the directory of the script",
     )
-
+    parser.add_argument(
+        "-once",
+        action="store_true",
+        dest="run_once",
+        help="Specify this flag if you want to refresh the wifi just once and do an infinite loop",
+    )
     args = parser.parse_args()
 
     try:
-        main(args.verbose_logging)
+        main(args.verbose_logging, args.run_once)
     except Exception:
         log_error(traceback.format_exc())
