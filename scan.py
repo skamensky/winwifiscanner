@@ -178,12 +178,14 @@ def main(verbose_logging=False):
             powered_down_msg = "The wireless local area network interface is powered down and doesn't support the requested operation."
             if powered_down_msg in command_output:
                 output_message(
-                    "The wireless local area network interface is powered down. Sleeping for a bit..."
+                    "The wireless local area network interface is powered down. Sleeping for a bit...",
+                    write_to_file=verbose_logging,
                 )
                 raise WifiOffException()
             network_items = NetworkListItem.parse_list(
                 command_output=command_output, verbose_error_logging=verbose_logging,
             )
+            # sorting for the sake of the cache in NetworkListItem.LAST_RUN
             return sorted(network_items, key=lambda item: item.ssid)
 
         try:

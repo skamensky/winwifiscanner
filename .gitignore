@@ -2,3 +2,4 @@ errors.txt
 log.txt
 .idea
 myenv
+__pycache__
